@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}Resigter{% endblock %}
+{% block body_block %}
+    <h1>Register with ggwp</h1>
+    {% if registers %}
+        Ggwp says:<strong>Thank you for registering!</strong>
+        <a href="/ggwp/index">Return to the homepage.</a>
+    {% else %}
+        Ggwp says:<strong>Register here!</strong>
+        <form id = 'user_form' method="POST" action="/ggwp/register/" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ user_form.as_p }}
+            {{ user_profile.as_p }}
+            <input type="submit" name="submit" value="Register"/>
+        </form>
+    {% endif %}
+{% endblock %}

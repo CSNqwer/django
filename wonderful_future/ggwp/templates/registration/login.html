@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block body_block %}
+<h1 class="form-signin-heading" style="text-align:center" >Login to Ggwp</h1>
+    <form class="form-signin" role="form" id="login_form" method="post" action="/ggwp/login/">
+        {% csrf_token %}
+        username：<input class="form-control" placeholder="Username" type="text" name="username" value="" required autofocus="" size="50"/>
+        <br/>
+        password: <input class="form-control" placeholder="Password" type="password" name="password" value="" size="50" required/>
+        <br/>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" name="submit">Sgin in</button>
+    </form>
+{% endblock %}

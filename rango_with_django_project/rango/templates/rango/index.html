@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rango</title>
+</head>
+<body>
+    <h1>Rango says ...Hello World!</h1>
+    <br/>
+    {% if categroies %}
+        <ul>
+            {% for categroy in categroies %}
+                <li><a href="/rango/index/category/{{ categroy.slug }}" >{{ categroy.name }}</a></li>
+            {% endfor %}
+
+        </ul>
+    {% else %}
+        <strong>There are no categroies present.</strong>
+    {% endif %}
+    <br/>
+    <a href="/rango/index/about">About</a>
+    <br/>
+    <img src="{% static "images/rango.jpg" %}" alt="Picture of Rango"/>
+</body>
+</html>
